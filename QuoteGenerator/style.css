@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+body{
+    background: lightsteelblue;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding: 30px;
+}
+.container h1{
+    margin-bottom: 40px;
+    position: relative;
+}
+.container h1::after{
+    content: "";
+    width: 90px;
+    height: 3px;
+    border-radius: 3px;
+    background: rgb(13, 137, 226);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.container blockquote{
+    font-size: 26px;
+    min-height: 110px;
+    text-align: center;
+}
+.container blockquote::before, .container blockquote::after{
+    content: '"';
+}
+.container span{
+    display: block;
+    margin-left: auto;    
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 19px;
+}
+.container span::before{
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: rgb(13, 137, 226);
+    position: absolute;
+    top: 50%;
+    left: -30px;
+}
+
+
+.container div{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    font-size: 17px;
+    text-align: center;
+    height: 50px;
+    padding: 0 23px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.first{
+    color: white;
+    background-color: rgb(13, 137, 226);
+    border: none;
+    margin-right: 20px;
+}
+.second{
+    border: 1px solid rgb(13, 137, 226);
+    background: transparent;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button img{
+    width: 30px;
+    margin-right: 10px;
+}

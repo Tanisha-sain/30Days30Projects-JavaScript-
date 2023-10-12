@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quote Of The Day</h1>
+        <blockquote>Loading...</blockquote>
+        <span>Loading...</span>
+        <div>
+            <button class="first" id="newQuote" onclick="quoteGenerate(api_url)">New Quote</button>
+            <button class="second" id="tweet"><img src="tweet.jpg" alt="">Tweet</button>
+        </div>
+    </div>
+
+    <script>
+        let quoteBox = document.querySelector("blockquote");
+        let authorBox = document.querySelector("span");
+        let nextQuote = document.querySelector("#newQuote");
+        let tweetButton = document.querySelector("#tweet");
+        const api_url = "https://api.quotable.io/random";
+        async function quoteGenerate(url){
+            const response = await fetch(url);
+            var data = await response.json();
+            console.log(data);
+            quoteBox.innerHTML = data.content;
+            authorBox.innerHTML = data.author;
+        }
+
+        
+
+        function tweet(){
+            console.log('clicked');
+            window.open("https://twitter.com/intent/tweet?text=" + quoteBox.innerHTML + "---- by "+ authorBox.innerHTML,"Tweet Window","width=600, height=300");
+        }
+        quoteGenerate(api_url);
+
+        tweetButton.addEventListener("click",tweet);
+
+        
+
+    </script>
+</body>
+</html>
