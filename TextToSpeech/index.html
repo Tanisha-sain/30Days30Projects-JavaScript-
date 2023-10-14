@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text To <span>Speech</span> Convertor</h1>
+        <textarea placeholder="Write anything here..."></textarea>
+        <div>
+            <select></select>
+            <button><img src="images/play.png" alt="">Listen</button>    
+        </div>
+    </div>
+
+<script>
+    let speech = new SpeechSynthesisUtterance();
+    let voices = [];
+    let voiceSelect = document.querySelector("select");
+
+    window.speechSynthesis.onvoiceschanged = () => {
+        voices = window.speechSynthesis.getVoices();
+        speech.voice = voices[0];
+        voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
+    }
+
+    voiceSelect.addEventListener("change",()=>{
+        speech.voice = voices[voiceSelect.value];
+    })
+
+    document.querySelector("button").addEventListener("click",()=>{
+        speech.text = document.querySelector("textarea").value;
+        window.speechSynthesis.speak(speech);
+    })
+</script>
+
+</body>
+</html>
