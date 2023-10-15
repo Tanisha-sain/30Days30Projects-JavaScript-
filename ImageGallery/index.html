@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(41, 41, 41);
+        }
+        .gallery{
+            width: 900px;
+            display: flex;
+            overflow-x: scroll;
+            /* scroll-behavior: smooth; */
+        }
+        .gallery div{
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 20px;
+            padding: 10px;
+            flex: none;
+        }
+        .gallery div img{
+            width: 100%;
+            filter: grayscale(100%);
+            transition: transform 0.5s;
+        }
+        .gallery::-webkit-scrollbar{
+            display: none;
+        }
+        .gallery-wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10% auto;
+        }
+        #back-btn,
+        #next-btn{
+            width: 50px;
+            cursor: pointer;
+            margin: 40px;
+        }
+        .gallery div img:hover{
+            filter: grayscale(0);
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="back-btn">
+        <div class="gallery">
+            <div>
+                <img src="images/image-1.png" alt="">
+                <img src="images/image-2.png" alt="">
+                <img src="images/image-3.png" alt="">
+            </div>
+            <div>
+                <img src="images/image-4.png" alt="">
+                <img src="images/image-5.png" alt="">
+                <img src="images/image-6.png" alt="">
+            </div>
+        </div>    
+        <img src="images/next.png" id="next-btn">
+    </div>
+
+
+    <script>
+        let scrollContainer = document.querySelector(".gallery");
+        let backButton = document.getElementById("back-btn");
+        let nextButton = document.getElementById("next-btn");
+
+        scrollContainer.addEventListener("wheel",(event) =>{
+            event.preventDefault();
+            scrollContainer.scrollLeft += event.deltaY;
+            scrollContainer.scrollLeft += event.deltaX;
+            scrollContainer.style.scrollBehavior = "auto";
+
+        })
+
+        nextButton.addEventListener("click",()=>{
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft += 900;
+        })
+        backButton.addEventListener("click",()=>{
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= 900;
+        })
+    </script>
+</body>
+</html>
