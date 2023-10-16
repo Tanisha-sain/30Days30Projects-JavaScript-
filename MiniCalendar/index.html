@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .hero{
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(45deg,#08001f,#30197d);
+            color: #fff;
+            position: relative;
+        }
+        .container{
+            width: 300px;
+            height: 250px;
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+
+        }
+        .date{
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            background-color: white;
+            color: black;
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .month{           
+            border-bottom-right-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: rgb(255, 102, 0);
+            color: white;
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .Date{
+            font-size: 80px;
+        }
+        .day{
+            font-size: 24px;
+            font-weight: 300;
+        }
+        .month div{
+            font-size: 23px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="date">
+                <div class="Date" id="Date">12</div>
+                <div class="day" id="Day">Tuesday</div>
+            </div>
+            <div class="month">
+                <div class="mon" id="Month">June</div>
+                <div class="year" id="Year">2023</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let date = document.getElementById("Date");
+        let day = document.getElementById("Day");
+        let month = document.getElementById("Month");
+        let year = document.getElementById("Year");
+        
+            let currentDay = new Date();
+            // let dayNum = currentDay.getDay();
+            // let dayName;
+            // switch(dayNum){
+            //     case 1: 
+            //         dayName = "Monday";
+            //         break;
+            //     case 2: 
+            //         dayName = "Tuesday";
+            //         break;
+            //     case 3: 
+            //         dayName = "Wednesday";
+            //         break;
+            //     case 4: 
+            //         dayName = "Thursday";
+            //         break;
+            //     case 5: 
+            //         dayName = "Friday";
+            //         break;
+            //     case 6: 
+            //         dayName = "Saturday";
+            //         break;
+            //     case 0: 
+            //         dayName = "Sunday";
+            //         break;
+            // }
+            // let monthNum = currentDay.getMonth();
+            // let monthName;
+            // switch(monthNum){
+            //     case 0: 
+            //         monthName = "January";
+            //         break;
+            //     case 1: 
+            //         monthName = "February";
+            //         break;
+            //     case 2: 
+            //         monthName = "March";
+            //         break;
+            //     case 3: 
+            //         monthName = "April";
+            //         break;
+            //     case 4: 
+            //         monthName = "May";
+            //         break;
+            //     case 5: 
+            //         monthName = "June";
+            //         break;
+            //     case 6: 
+            //         monthName = "July";
+            //         break;
+            //     case 7: 
+            //         monthName = "August";
+            //         break;
+            //     case 8: 
+            //         monthName = "September";
+            //         break;
+            //     case 9: 
+            //         monthName = "October";
+            //         break;
+            //     case 10: 
+            //         monthName = "November";
+            //         break;
+            //     case 11: 
+            //         monthName = "December";
+            //         break;
+            // }
+            // day.innerHTML = dayName;
+            // month.innerHTML = monthName;
+
+            const weeks = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            day.innerHTML = weeks[currentDay.getDay()];
+            month.innerHTML = months[currentDay.getMonth()];
+            date.innerHTML = ((currentDay.getDate()<10)?"0":"") + currentDay.getDate();
+            year.innerHTML = currentDay.getFullYear();
+            console.log(currentDay.getDay());
+        
+    </script>
+
+
+</body>
+</html>
