@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        .container{
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(45deg,black,rgb(0, 0, 98));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left,.right{
+            margin: 40px;
+            width: 25%;
+            min-height: 450px;
+            border: 3px dotted white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 25px;
+        }
+        .first{
+            width: 100%;
+            background-color: rgb(231, 0, 96);
+            height: 80px;
+            margin-bottom: 25px;
+            cursor: grab;
+            color: white;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="first" draggable="true">List item 1</div>
+            <div class="first" draggable="true">List item 2</div>
+            <div class="first" draggable="true">List item 3</div>
+            <div class="first" draggable="true">List item 4</div>
+        </div>
+        <div class="right"></div>
+    </div>
+
+    <script>
+        const left = document.getElementsByClassName("left")[0];
+        const right = document.getElementsByClassName("right")[0];
+        const lists = document.getElementsByClassName("first");
+        for(list of lists){
+            list.addEventListener("dragstart",(event)=>{
+                let selected = event.target;
+                right.addEventListener("dragover",(event)=>{
+                    event.preventDefault();    
+                })
+                right.addEventListener("drop",(event)=>{
+                    right.appendChild(selected);
+                    selected = null;
+                })
+                left.addEventListener("dragover",(event)=>{
+                    event.preventDefault();    
+                })
+
+                left.addEventListener("drop",(event)=>{
+                    left.appendChild(selected);
+                    selected = null;
+                })
+            })
+        }
+    </script>
+</body>
+</html>
