@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: url("images/background.png");
+    display: flex;
+    justify-content: space-between;
+}
+.right{
+    width: 30%;
+    height: inherit;
+    align-self: flex-end;
+}
+.left{
+    width: 70%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0 240px 130px ;
+}
+.logo{
+    width: 170px;
+}
+button{
+    background: transparent;
+    border: 1px solid white;
+    font-size: 16px;
+    padding: 10px 27px 15px;
+    color: white;
+    text-align: center;
+}
+button img{
+    width: 32px;
+    padding-left: 12px;
+    transform: translateY(6px);
+}
+.count{
+    display: flex;
+    color: white;
+    justify-content: flex-start;
+    padding: 22px 0 18px;
+}
+.count h2{
+    font-size: 65px;
+    font-weight: 500;
+}
+.count p{
+    font-size: 18px;
+    font-weight: 400;
+}
+.count div{
+    margin-right: 30px;
+}
+.content h1{
+    color: white;
+    font-size: 60px;
+    font-weight: 400;
+}
+.content span{
+    color: rgb(255, 0, 136);
+}
+.first{
+    color: white;
+    font-size: 16px;
+}
+.right img{
+    width: 300px;
+    animation: animate 1.5s linear infinite;
+}
+@keyframes animate{
+    0%{
+        opacity: 0.1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-100vh);
+    }
+}
