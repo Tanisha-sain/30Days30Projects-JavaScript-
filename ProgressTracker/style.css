@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(195, 215, 232);
+}
+.skills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+.box{
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+.outer{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.45);
+}
+.inner{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, 0.2),
+                -0.5px -0.5px 0px rgba(255, 255, 255, 0.1),
+                0.5px 0.5px 0px rgba(0,0,0,0.15),
+                0px 12px 10px -10px rgba(0,0,0,0.05);
+}
+#number1,
+#number2,
+#number3{
+    font-weight: 600;
+    color: #555;
+}
+
+#first circle,
+#second circle,
+#third circle{
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+}
+#first circle{
+    animation: anim1 2s linear forwards;
+}
+#second circle{
+    animation: anim2 2s linear forwards;
+}
+#third circle{
+    animation: anim3 2s linear forwards;
+}
+svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes anim1 {
+    100%{
+        stroke-dashoffset: 154;
+    }
+}
+@keyframes anim2 {
+    100%{
+        stroke-dashoffset: 110;
+    }
+}
+@keyframes anim3 {
+    100%{
+        stroke-dashoffset: 220;
+    }
+}
