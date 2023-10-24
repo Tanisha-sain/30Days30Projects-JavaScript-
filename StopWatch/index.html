@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } */
+        body{
+            background: rgb(157, 152, 152);
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .stopwatch{
+            width: 90%;
+            max-width: 600px;
+            background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(images/background.png);
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 40px 0;
+            color: #fff;
+            margin: 200px auto 0;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+            ;
+        }
+
+        .stopwatch h1{
+            margin-top: 60px;
+            font-size: 64px;
+            font-weight: 400;
+        }
+        .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .buttons img{
+            width: 55px;
+            cursor: pointer;
+            margin: 0 20px;
+        }
+        .buttons img:nth-child(2){
+            width: 85px;
+        }
+    </style>
+</head>
+<body>
+    <div class="stopwatch">
+        <h1 id="time">00:00:00</h1>
+        <div class="buttons">
+            <img src="images/stop.png" id="stopButton">
+            <img src="images/start.png" id="startButton">
+            <img src="images/reset.png" id="resetButton">
+        </div>
+    </div>
+
+
+    <script>
+        const time = document.getElementById("time");
+        const stop = document.getElementById("stopButton");
+        const start = document.getElementById("startButton");
+        const reset = document.getElementById("resetButton");
+        let [seconds, minutes, hours] = [0,0,0];
+
+        function stopwatch(){
+            seconds++;
+            if(seconds == 60){
+                seconds = 0;
+                minutes++;
+                if(minutes == 60){
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            let h = hours < 10?"0"+hours:hours;
+            let m= minutes < 10?"0"+minutes:minutes;
+            let s = seconds < 10?"0"+seconds:seconds;
+            time.innerHTML = h + ":" + m + ":" + s;
+        }
+        let timer;
+        start.addEventListener("click",() => {
+            stop.style.opacity = 1;
+            start.style.opacity = 0.8;
+            reset.style.opacity = 1;
+            if(timer !== null){
+                clearInterval(timer);
+            }
+            timer = setInterval(stopwatch,1000);
+
+        })
+
+        stop.addEventListener("click",()=>{
+            clearInterval(timer);
+            stop.style.opacity = 0.4;
+            start.style.opacity = 1;
+            reset.style.opacity = 1;
+
+        })
+
+        reset.addEventListener("click", ()=>{
+            stop.style.opacity = 1;
+            start.style.opacity = 1;
+            reset.style.opacity = 0.4;
+
+            clearInterval(timer);
+            [seconds,minutes,hours] = [0,0,0];
+            time.innerHTML = "00:00:00";
+        })
+    </script>
+    
+</body>
+</html>
