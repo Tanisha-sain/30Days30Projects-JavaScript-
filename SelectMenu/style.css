@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.hero{
+    width: 100%;
+    height: 100dvh;
+    background: linear-gradient(45deg,rgb(255, 48, 83),rgb(255, 145, 162));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box,
+.list{
+    width: 350px;
+}
+#selectField{
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+#selectField img{
+    width: 10px;
+    transition: transform 0.5s;
+}
+#list li img{
+    width: 27px;
+    margin-right: 10px;
+}
+#list{
+    border-radius: 6px;
+    width: 350px;
+    overflow: hidden;
+}
+li{
+   list-style: none; 
+   display: flex;
+   justify-content: left;
+   width: 100%;
+   background: rgba(255,255,255,0.7);
+   padding: 10px 20px;
+   cursor: pointer;
+}
+li:hover{
+    background-color: white;
+}
+.hide{
+    visibility: hidden;
+}
+.rotate{
+    transform: rotate(180deg);
+}
